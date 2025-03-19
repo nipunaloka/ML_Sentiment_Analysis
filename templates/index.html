@@ -3,47 +3,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <Link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}"></Link>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>App</title>
 </head>
 <body>
-
     <div class="split left">
         <div class="centered">
-            <img src="../static/products/product_01.jpg" alt="">
+            <img src="../static/products/product_01.jpg" alt="Product Image" class="img-fluid rounded">
         </div>
     </div>
-
 
     <div class="split right">
         <div class="container mt-5 mb-5">
             <div class="d-flex justify-content-center row">
-                <div class="d-flex flex-column col-md-8">
-                    <div>
-                        <label for="">Positive Sentiments : {{ data.positive }}</label>
-                    </div>
-                    <div>
-                        <label for="">Negative Sentiments : {{ data.negative }}</label>
+                <div class="col-md-8">
+                    <div class="mb-4">
+                        <h3 class="text-primary">Sentiment Analysis</h3>
+                        <p><strong>Positive Sentiments: </strong>{{ data.positive }}</p>
+                        <p><strong>Negative Sentiments: </strong>{{ data.negative }}</p>
                     </div>
                     <div>
                         <form method="post">
-                          <textarea name="text"></textarea>
-                          <input type="submit">
+                            <div class="form-group">
+                                <textarea name="text" class="form-control" placeholder="Enter your text here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
 
-                    <div class="coment-bottom bg-white p-2 px-4">
+                    <div class="coment-bottom bg-white p-2 mt-4">
+                        <h5 class="mb-3">Recent Reviews:</h5>
                         {% for review in data.reviews %}
-                        <hr/>
-                          <div
-                              class="commented-section mt-2">
-                              <div class="d-flex flex-row align-items-center commented-user">
-                                  </div>
-                                  <div class="text-nowrap bd-highlight"><span>{{ review }}</span></div>
-                                  <hr/>
+                        <div class="commented-section mt-3">
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="bd-highlight">
+                                    <p class="font-weight-bold text-dark">{{ review }}</p>
+                                </div>
+                            </div>
+                        </div>
                         {% endfor %}
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>
