@@ -1,6 +1,6 @@
 # Sentiment Analysis Using Machine Learning
 
-![img].()
+![img](image01.PNG)
 
 This repository contains a sentiment analysis project that processes and classifies text data using machine learning techniques. The project includes data preprocessing, model training, and evaluation.
 
